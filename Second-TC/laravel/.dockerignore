@@ -1,0 +1,11 @@
+### User-specific stuff:
+.dockerignore
+
+### Other data
+**/storage/mysql-data
+**/vendor/
+
+### Vendor bin dependencies
+**//tools/*/vendor/
+**/.phpunit.cache
+**/.phpunit.result.cache

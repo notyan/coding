@@ -1,0 +1,45 @@
+services: 
+  phpFpm:
+    image: php:8.2-fpm
+    container_name: lemp-php
+    networks:
+      - lemp_net
+    volumes:
+      - ./app:/var/www/html
+
+  nginx:
+    image: nginx:latest
+    container_name: lemp-nginx
+    ports:
+        - '8000:80'
+    volumes:
+        - './app:/var/www/html'
+        - './nginx:/etc/nginx/conf.d'
+    depends_on:
+      - phpFpm
+    networks:
+      - lemp_net
+
+  mariadb:
+    image: mariadb:lts
+    container_name: lemp-mariadb
+    ports:
+      - "3306:3306"
+    restart: 'on-failure'
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:?err}
+      MARIADB_DATABASE: ${MARIADB_DATABASE:?err}
+      MARIADB_USER: ${MARIADB_USER:?err}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD:?err}
+    volumes:
+      - db_volume:/var/lib/mysql
+    networks:
+      - lemp_net
+  
+networks:
+  lemp_net:
+    driver: bridge
+
+volumes:
+  db_volume:
+

@@ -1,0 +1,18 @@
+services: 
+  laravel:
+    container_name: laravel
+    ports: 
+      - '2121:2121'
+    build:
+      dockerfile: Dockerfile
+      args:
+        - DB_NAME=${MARIADB_DATABASE}
+        - DB_USER=${MARIADB_USER}
+        - DB_PASS=${MARIADB_PASSWORD} 
+        - DB_HOST=${MARIADB_HOST}
+    networks:
+      - lemp_lemp_net
+
+networks:
+  lemp_lemp_net:
+    external: true
