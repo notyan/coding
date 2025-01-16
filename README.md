@@ -1,14 +1,12 @@
 ## Coding Collective Take Home Technical Test
 There is two folder, for each Test Case (TC)
-|- First-TC
-|- Second-TC
 
 
 ### Test Case 1
 Located at folder First-TC, Consist of two folder
-#### 10MinLog
+#### 1. 10MinLog
 
-#### sonarqube
+#### 2. sonarqube
 1. Make .env file
 ```
 cp .env.example .env
@@ -20,16 +18,18 @@ docker compose up
 ```
 4. The app will run on port `9001` or `localhost:9001`
 
+---
+
 ### Test Case 2
 Located at folder Second-TC, Consist of Four folder
-#### DB-Backup
+#### 1. DB-Backup
 Bash Script to create a database backup, compression, and 30 days retention period
 ##### How to 
 Edit the `dbBackup.sh`, and change the Configuration as needed, then run the script
 ```
 ./dbBackup.sh
 ```
-#### LEMP
+#### 2. LEMP
 Docker Compose file to run LEMP
 ##### How to
 1. Make .env file
@@ -42,10 +42,11 @@ cp .env.example .env
 docker compose up
 ```
 4. The app will run at port `8000` or `localhost:8000`
-#### SSH-BruteForce
+
+#### 3. SSH-BruteForce
 Bash script to block brute force ssh request
 
-#### laravel
+#### 4. laravel
 Simple laravel project only contain hello world with my name
 ##### How To
 1. Make .env file

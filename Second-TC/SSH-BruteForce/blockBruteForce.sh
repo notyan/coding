@@ -5,6 +5,9 @@ LOG_FILE="/var/log/auth.log"
 BLOCKLIST="/var/log/ip_block.txt"
 MAX_RETRY=5
 
+# Check bloclist file 
+[[ ! -d "$BACKUP_DIR" ]] && touch "$BLOCKLIST"
+
 #Block Ip on trying multiple time
 block(){
     local ip="$1"
@@ -12,13 +15,6 @@ block(){
         iptables -A INPUT -s "$ip" -j DROP
         echo "$ip" >> "$BLOCKLIST"
     fi
-}
-
-#Manually unblock Ip if requested
-unblock() {
-    iptables -D INPUT -s "$ip" -j DROP
-    sed -i "/$ip/d" "$BLOCKLIST"
-    echo "$(date): Unblocking IP $ip"
 }
 
 echo "Checking Auth.log for brute force attempt"
