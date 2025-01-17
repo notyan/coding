@@ -88,6 +88,6 @@ cd ../LEMP/ && docker compose up -d
 ```
 4. Run laravel docker compose
 ```
-cd ../laravel/ docker compose up 
+cd ../laravel/ docker compose up --build
 ```
 5. The app will run on port `2121`  or `localhost:2121`

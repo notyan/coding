@@ -21,8 +21,8 @@ RUN sed -i "s/DB_HOST=127.0.0.1/DB_HOST=${DB_HOST}/" .env
 RUN sed -i "s/DB_USERNAME=root/DB_USERNAME=${DB_USER}/" .env
 RUN sed -i "s/DB_PASSWORD=/DB_PASSWORD=${DB_PASS}/" .env
 RUN sed -i "s/DB_DATABASE=laravel/DB_DATABASE=${DB_NAME}/" .env
-RUN composer install -n -q --no-scripts
+RUN composer install -n -q
 RUN php artisan key:generate
 
-CMD php artisan serve --host=0.0.0.0 --port=2121
+CMD php artisan migrate && php artisan serve --host=0.0.0.0 --port=2121
 EXPOSE 2121

@@ -53,7 +53,6 @@ cat > ${DIR}/docker-compose.yml << EOF
 services: 
   phpFpm:
     image: php:8.2-fpm
-    container_name: lemp-php
     networks:
       - lemp_net
     volumes:
@@ -61,7 +60,6 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: lemp-nginx
     ports:
         - '8000:80'
     volumes:
@@ -74,7 +72,6 @@ services:
 
   mariadb:
     image: mariadb:lts
-    container_name: lemp-mariadb
     ports:
       - "3306:3306"
     restart: 'on-failure'
