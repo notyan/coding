@@ -8,7 +8,7 @@ APP="${DIR}/app"
 
 if [[ $1 == "--cleanup" ]]; then
     if [[ -d "$DIR" ]]; then
-        (cd "$DIR" && docker-compose down -v;)
+        (cd "$DIR" && docker compose down -v;)
         rm -rf "$DIR"
     fi
     echo "Working dir Cleaned"
