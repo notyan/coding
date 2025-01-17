@@ -1,10 +1,20 @@
 ## Coding Collective Take Home Technical Test
 There is two folder, for each Test Case (TC)
 
-
+---
 ### Test Case 1
-Located at folder First-TC, Consist of two folder
+Located at folder `First-TC`, Consist of two folder
 #### 1. 10MinLog
+The script is `tailLog.sh`, It have multiple options
+
+```
+This option will analyze latest modified log file
+-e        Count and show 500 Http Response Code
+-a        Count and show all Http Response Code
+-i        Get top 5 ip that sent the request
+This option will analyze all log file
+-f        Analyze All log File
+```
 
 #### 2. sonarqube
 1. Make .env file
@@ -21,7 +31,7 @@ docker compose up
 ---
 
 ### Test Case 2
-Located at folder Second-TC, Consist of Four folder
+Located at folder `Second-TC`, Consist of Four folder
 #### 1. DB-Backup
 Bash Script to create a database backup, compression, and 30 days retention period
 ##### How to 
