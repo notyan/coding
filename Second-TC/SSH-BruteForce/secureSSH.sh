@@ -22,7 +22,9 @@ while getopts $OPT option; do
         h) 
             bash ./hardening.sh
             ;;
-        c)  copy ./blockBruteForce.sh /et/cron.daily/blockBruteForce.sh
+        c)  
+            copy ./blockBruteForce.sh /et/cron.daily/blockBruteForce.sh
+            ;;
         
     esac
 done
