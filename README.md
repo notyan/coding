@@ -2,9 +2,9 @@
 There is two folder, for each Test Case (TC)
 
 ---
-### Test Case 1
+## Test Case 1
 Located at folder `First-TC`, Consist of two folder
-#### 1. 10MinLog
+### 1. 10MinLog
 The script is `tailLog.sh`, It have multiple options
 
 ```
@@ -16,7 +16,7 @@ This option will analyze all log file
 -f        Analyze All log File
 ```
 
-#### 2. sonarqube
+### 2. sonarqube
 1. Make .env file
 ```
 cp .env.example .env
@@ -37,16 +37,23 @@ docker compose up
 6. The app will run on port `9001` or `localhost:9001`
 ---
 
-### Test Case 2
+## Test Case 2
 Located at folder `Second-TC`, Consist of Four folder
-#### 1. DB-Backup
+### 1. DB-Backup
 Bash Script to create a database backup, compression, and 30 days retention period
 ##### How to 
-Edit the `dbBackup.sh`, and change the Configuration as needed, then run the script
+1. Edit the `dbBackup.sh`, and change the Configuration as needed, 
+```
+DB_NAME="DB_NAME"
+DB_USER="DB_USER"
+DB_PASS="DB_PASS"
+BACKUP_DIR="/home/backup/"
+```
+2. Run The script, and the backup will be created
 ```
 ./dbBackup.sh
 ```
-#### 2. LEMP
+### 2. LEMP
 Docker Compose file to run LEMP
 ##### How to
 1. Make .env file
@@ -88,7 +95,7 @@ Simple laravel project only contain hello world with my name
 ```
 cp .env.example .env
 ```
-2. Fill .env file as needed
+2. Fill .env same as the LEMP stack
 3. Run LEMP docker compose
 ```
 cd ../LEMP/ && docker compose up -d
