@@ -1,13 +1,14 @@
 #!/bin/bash
 
 
-OPT=":buh"
+OPT=":buhc"
 
 if [[ $1 == "" ]]; then
     echo "Use theese tree option to secure your ssh"
     echo "-b    block all bruteforce attempt"
     echo "-u    unblock ip"
     echo "-h    hardening the ssh"
+    echo "-c    add crontab to run it automatically"
 fi
 
 while getopts $OPT option; do
@@ -21,6 +22,7 @@ while getopts $OPT option; do
         h) 
             bash ./hardening.sh
             ;;
+        c)  copy ./blockBruteForce.sh /et/cron.daily/blockBruteForce.sh
         
     esac
 done

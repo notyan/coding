@@ -6,7 +6,7 @@ BLOCKLIST="/var/log/ip_block.txt"
 MAX_RETRY=5
 
 # Check bloclist file 
-[[ ! -d "$BACKUP_DIR" ]] && touch "$BLOCKLIST"
+[[ ! -f "$BLOCKLIST" ]] && touch "$BLOCKLIST"
 
 #Block Ip on trying multiple time
 block(){

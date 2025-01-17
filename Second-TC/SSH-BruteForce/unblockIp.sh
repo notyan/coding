@@ -15,5 +15,3 @@ if grep -q "$1" "$BLOCKLIST"; then
 else 
     echo "This IP $1 are not in blocklist"
 fi
-
-

@@ -4,7 +4,7 @@ cat > /etc/ssh/sshd_config.d/hardening.conf<< EOF
 ChallengeResponseAuthentication no
 PasswordAuthentication no
 UsePAM yes
-MaxAuthTries 3
+MaxAuthTries 1
 Port 2020
 EOF
 
