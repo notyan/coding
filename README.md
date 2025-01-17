@@ -37,11 +37,16 @@ Docker Compose file to run LEMP
 cp .env.example .env
 ```
 2. Fill .env file as needed
-3. Run  docker compose
+3. Run  the script
 ```
-docker compose up
+./lemp.sh
 ```
-4. The app will run at port `8000` or `localhost:8000`
+4. The script will show where the app run
+
+To cleanup the lemp folder run
+```
+./lemp.sh --cleanup
+```
 
 #### 3. SSH-BruteForce
 Bash script to block brute force ssh request
