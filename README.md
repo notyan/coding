@@ -45,6 +45,19 @@ docker compose up
 
 #### 3. SSH-BruteForce
 Bash script to block brute force ssh request
+##### How To
+1. Run the main script
+```
+./secureSSH.sh
+```
+2. It will show the option available
+```
+Use theese tree option to secure your ssh
+-b    block all bruteforce attempt
+-u    unblock ip
+-h    hardening the ssh
+```
+3. Chose the one needed
 
 #### 4. laravel
 Simple laravel project only contain hello world with my name
