@@ -97,7 +97,7 @@ volumes:
 
 EOF
 
-if (cd $DIR; docker-compose up -d;) then
+if (cd $DIR; docker compose up -d;) then
     echo "LEMP Is running on"
     echo "mysql     : http://localhost:3306"
     echo "app       : http://localhost:8000"
