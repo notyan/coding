@@ -22,12 +22,19 @@ This option will analyze all log file
 cp .env.example .env
 ```
 2. Fill .env file as needed
-3. Run  docker compose
+3. Change the `vm.max_map_count` value to 262144 on the `/etc/sysctl.conf`, or run 
+```
+echo "vm.max_map_count=262144" >> /etc/sysctl.conf 
+```
+4. Reload the configuration
+```
+sudo sysctl -p
+```
+5. Run  docker compose
 ```
 docker compose up 
 ```
-4. The app will run on port `9001` or `localhost:9001`
-
+6. The app will run on port `9001` or `localhost:9001`
 ---
 
 ### Test Case 2
