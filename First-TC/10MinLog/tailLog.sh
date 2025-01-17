@@ -29,7 +29,10 @@ while getopts $OPT option; do
             awk -v d1="$TIME" '{if (substr($4,2,20) > d1) print $1}' $LOG | uniq -c  | sort -n -r | head -n 5
             ;;
         f) 
-            find ./ -maxdepth 1 -type f -mmin +0 -name "Http-*.log" -exec sh -c 'echo -n "{}  " ; awk -v d1="$TIME" '\''{if (substr($4,2,20) > d1) print $9}'\'' {} | grep "500" | sort -n | uniq -c' ';'
+            LOGS=$(find ./ -maxdepth 1 -type f -mmin +0 -name "Http-*.log")  
+            for file in $LOGS; do
+                awk -v d1="$TIME" '{if (substr($4,2,20) > d1) print $9}' $LOG | grep "500" | uniq -c
+            done
             ;;
         *) 
             echo "Thoose Option are not available"
