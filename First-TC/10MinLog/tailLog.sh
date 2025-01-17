@@ -5,7 +5,7 @@ LOG=$(ls -t Http-*.log | head -n 1)
 #LOG=$(find ./ -maxdepth 1 -type f -mtime 0 -name "*HTTP-*.log" )
 
 #Getting current time, 
-TIME=$(date -u -d '10 days ago' +'%d/%b/%Y:%H:%M:%S')
+TIME=$(date -u -d '10 minutes ago' +'%d/%b/%Y:%H:%M:%S')
 
 OPT=":aief"
 
@@ -29,7 +29,7 @@ while getopts $OPT option; do
             awk -v d1="$TIME" '{if (substr($4,2,20) > d1) print $1}' $LOG | uniq -c  | sort -n -r | head -n 5
             ;;
         f) 
-            find ./ -maxdepth 1 -type f -mmin +0 -name "Http-*.log" -exec sh -c 'awk -v d1="$TIME" '\''{if (substr($4,2,20) > d1) print $9}'\'' {} | sort -n | uniq -c' ';'
+            find ./ -maxdepth 1 -type f -mmin +0 -name "Http-*.log" -exec sh -c 'echo -n "{}  " ; awk -v d1="$TIME" '\''{if (substr($4,2,20) > d1) print $9}'\'' {} | grep "500" | sort -n | uniq -c' ';'
             ;;
         *) 
             echo "Thoose Option are not available"
